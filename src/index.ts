@@ -15,7 +15,7 @@ app.registerInitializer({
   }
 });
 
-app.renderComponent('glimmer-audio-player', containerElement, null);
+app.renderComponent('demo-app', containerElement, null);
 
 app.boot();
 initializeCustomElements(app, ['glimmer-audio-player']);
