@@ -10,9 +10,18 @@
   </svg>
 
   <div class="left self-start">
-    <div class="icon-container">
-      <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
-        <use href="#play-arrow" />
+    <div class="icon-container" onclick={{action playPause}}>
+      <svg
+        viewBox="0 0 24 24"
+        preserveAspectRatio="xMidYMid meet"
+        width="100%"
+        height="100%"
+        >
+        {{#if isPlaying}}
+          <use href="#pause" />
+        {{else}}
+          <use href="#play-arrow" />
+        {{/if}}
       </svg>
     </div>
   </div>
@@ -20,6 +29,8 @@
   <div class="center flex">
     <div class="title fit" role="alert">{{title}}</div>
     <div class="progress fit" style={{progressStyle}}></div>
+    {{log 'render'}}
+    <audio data-id="audio" src={{fileUrl}} preload={{preload}} autoplay={{autoPlay}}></audio>
     <div class="progress2 fit" style={{progressWhiteStyle}}>
       <div class="title2" style={{titleStyle}} aria-hidden="true">{{title}}</div>
     </div>
